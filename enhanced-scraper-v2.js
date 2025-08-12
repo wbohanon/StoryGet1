@@ -45,7 +45,10 @@ class EnhancedStoryScraper {
                         word_count INTEGER,
                         domain TEXT,
                         scraped_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                        tags TEXT
+                        tags TEXT,
+                        read_count INTEGER DEFAULT 0,
+                        last_read DATETIME,
+                        similarity_keywords TEXT
                     )
                 `, (err) => {
                     if (err) reject(err);
@@ -55,6 +58,10 @@ class EnhancedStoryScraper {
                     }
                 });
             });
+            
+            // Create additional tables for new features
+            await this.createAdditionalTables();
+            await this.createIndexes();
             return;
         }
 

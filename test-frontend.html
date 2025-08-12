@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend Test</title>
+</head>
+<body>
+    <h1>Frontend Test</h1>
+    <div id="test-results"></div>
+    
+    <script>
+        console.log('🧪 Testing frontend functionality...');
+        
+        // Test 1: Check if server is accessible
+        fetch('/stories')
+            .then(response => response.json())
+            .then(stories => {
+                console.log('✅ Server accessible, stories found:', stories.length);
+                document.getElementById('test-results').innerHTML += 
+                    `<p>✅ Server accessible: ${stories.length} stories found</p>`;
+            })
+            .catch(error => {
+                console.error('❌ Server not accessible:', error);
+                document.getElementById('test-results').innerHTML += 
+                    `<p>❌ Server error: ${error.message}</p>`;
+            });
+            
+        // Test 2: Check if enhanced JS would load
+        setTimeout(() => {
+            console.log('🔍 Testing enhanced JS loading...');
+            
+            // Simulate what the enhanced JS does
+            const testContainer = document.createElement('div');
+            testContainer.id = 'story-list';
+            document.body.appendChild(testContainer);
+            
+            fetch('/stories')
+                .then(response => response.json())
+                .then(stories => {
+                    console.log('📚 Stories loaded for display test:', stories.length);
+                    
+                    if (stories.length > 0) {
+                        testContainer.innerHTML = stories.slice(0, 3).map(story => `
+                            <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+                                <h3>${story.title}</h3>
+                                <p>Author: ${story.author || 'Unknown'}</p>
+                                <p>Words: ${story.word_count}</p>
+                                <p>Domain: ${story.domain}</p>
+                            </div>
+                        `).join('');
+                        
+                        document.getElementById('test-results').innerHTML += 
+                            `<p>✅ Story display test successful</p>`;
+                    } else {
+                        document.getElementById('test-results').innerHTML += 
+                            `<p>⚠️ No stories to display</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('❌ Display test failed:', error);
+                    document.getElementById('test-results').innerHTML += 
+                        `<p>❌ Display test failed: ${error.message}</p>`;
+                });
+        }, 1000);
+    </script>
+</body>
+</html>
