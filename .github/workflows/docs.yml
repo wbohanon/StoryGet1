@@ -1,0 +1,27 @@
+name: Docs
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "docs/**", ".github/workflows/docs.yml" ]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "docs/**", ".github/workflows/docs.yml" ]
+
+jobs:
+  broken-links:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: docs
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+
+    - name: Check for broken links
+      run: npx -y mint@4.3.76 broken-links
