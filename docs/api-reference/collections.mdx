@@ -1,0 +1,27 @@
+---
+title: "Collections"
+description: "Create collections and manage their stories."
+---
+
+| Method | Path | Description |
+| --- | --- | --- |
+| `GET` | `/collections` | List collections |
+| `POST` | `/collections` | Create a collection |
+| `DELETE` | `/collections/:id` | Delete a collection. `404` if missing |
+| `GET` | `/collections/:id/stories` | Stories in a collection |
+| `POST` | `/collections/:collectionId/stories/:storyId` | Add a story |
+| `DELETE` | `/collections/:collectionId/stories/:storyId` | Remove a story |
+
+## POST /collections
+
+| Body field | Type | Required |
+| --- | --- | --- |
+| `name` | string | yes, unique |
+| `description` | string | no |
+| `color` | string | no, hex color |
+
+```bash
+curl -X POST http://localhost:3000/collections \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Sci-Fi", "color": "#00aa66"}'
+```

@@ -1,0 +1,25 @@
+---
+title: "Scraping"
+description: "Scrape a single story or discover story links on a page."
+---
+
+## Single page
+
+`POST /scrape` loads the page in headless Chromium, extracts the title, author, and body text, and saves the story.
+
+If extraction looks wrong, `POST /debug-scrape` returns detailed information about how the content was found.
+
+## Finding links on a page
+
+`POST /scrape-links` opens an index page (an author page, a tag listing, a table of contents) and returns candidate story links.
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `linkSelector` | `a[href]` | CSS selector for candidate links |
+| `filterPatterns` | `[]` | Only keep URLs that match these patterns |
+| `excludePatterns` | images, CSS, JS, `mailto:` … | Drop URLs that contain these strings |
+| `sameDomain` | `true` | Only keep links on the same domain |
+| `maxLinks` | `10` | Maximum number of links returned |
+| `keywords` | `[]` | Prefer links whose text contains these keywords |
+
+See the [scraping API](/api-reference/scraping) for request examples.

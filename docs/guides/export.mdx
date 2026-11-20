@@ -1,0 +1,13 @@
+---
+title: "Export"
+description: "Export your library to JSON, CSV, TXT, HTML, EPUB, or Markdown."
+---
+
+`GET /export` writes every story to a file in the project directory, and `GET /download/:filename` downloads it.
+
+Supported formats: `json` (default), `csv`, `txt`, `html`, `epub`, `markdown` (or `md`).
+
+```bash
+curl "http://localhost:3000/export?format=epub&filename=library.epub"
+curl -O http://localhost:3000/download/library.epub
+```

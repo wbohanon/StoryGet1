@@ -1,0 +1,10 @@
+---
+title: "Recommendations"
+description: "Find stories similar to the one you are reading."
+---
+
+When a story is saved, StoryGet extracts similarity keywords from its content. The story viewer uses them to list **Similar Stories**.
+
+Opening a story marks it as read, which updates its `read_count` and `last_read` fields.
+
+Endpoints: `GET /story/:id/similar` and `POST /story/:id/read`. See the [stories API](/api-reference/stories).

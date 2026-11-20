@@ -1,0 +1,18 @@
+---
+title: "Search"
+description: "Find stories by text, length, domain, or collection."
+---
+
+Search matches your query against titles, authors, and content, and can be narrowed with filters:
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `searchTitle` | `true` | Match against the title |
+| `searchAuthor` | `true` | Match against the author |
+| `searchContent` | `true` | Match against the story text |
+| `collectionId` | `null` | Only stories in this collection |
+| `minWordCount` / `maxWordCount` | `null` | Word count range |
+| `domain` | `null` | Only stories from this domain |
+| `limit` | `50` | Maximum results |
+
+See the [search API](/api-reference/search).

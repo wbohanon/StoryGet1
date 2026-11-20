@@ -1,0 +1,13 @@
+---
+title: "RSS"
+description: "Manage feeds and scrape their items."
+---
+
+| Method | Path | Description |
+| --- | --- | --- |
+| `GET` | `/rss-feeds` | List feeds |
+| `POST` | `/rss-feeds` | Add a feed. Body: `url` (required), `title`, `description` |
+| `DELETE` | `/rss-feeds/:id` | Delete a feed. `404` if missing |
+| `POST` | `/rss-feeds/:id/check` | Fetch the feed and record new items |
+| `GET` | `/rss-items/unscraped` | Unscraped items. Query: `limit` (default `10`) |
+| `POST` | `/rss-items/scrape` | Scrape unscraped items. Body: `limit` (default `5`) |

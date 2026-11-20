@@ -1,0 +1,22 @@
+---
+title: "API introduction"
+description: "Conventions for the StoryGet HTTP API."
+---
+
+- **Base URL:** `http://localhost:3000` (or the value of `PORT`)
+- **Authentication:** none. The server is meant to run locally; don't expose it to the internet.
+- **Format:** request and response bodies are JSON.
+
+## Errors
+
+Errors return a JSON body with an `error` message:
+
+```json
+{ "error": "Missing url in request body." }
+```
+
+| Status | Meaning |
+| --- | --- |
+| `400` | A required field is missing |
+| `404` | The story, collection, feed, or file doesn't exist |
+| `500` | Scraping or a database operation failed |

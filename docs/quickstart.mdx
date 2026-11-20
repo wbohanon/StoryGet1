@@ -1,0 +1,30 @@
+---
+title: "Quickstart"
+description: "Run StoryGet locally."
+---
+
+## Requirements
+
+- Node.js 18 or later
+- Enough disk space for Puppeteer's bundled Chromium
+
+## Install and run
+
+```bash
+git clone https://github.com/wbohanon/StoryGet1.git
+cd StoryGet1
+npm install
+node server.js
+```
+
+The server listens on `http://localhost:3000`. Set the `PORT` environment variable to use a different port.
+
+## Scrape your first story
+
+```bash
+curl -X POST http://localhost:3000/scrape \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://example.com/my-story"}'
+```
+
+The story is saved to `stories.db` and the response contains its title, author, content, and word count.
