@@ -1,0 +1,66 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "StoryGet",
+  "description": "Scrape, organize, search, and export stories from the web.",
+  "colors": {
+    "primary": "#4A6FA5",
+    "light": "#7B9ACC",
+    "dark": "#2F4A75"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": ["index", "quickstart"]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "guides/scraping",
+              "guides/collections",
+              "guides/rss-feeds",
+              "guides/search",
+              "guides/recommendations",
+              "guides/export"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/scraping",
+              "api-reference/stories",
+              "api-reference/collections",
+              "api-reference/rss",
+              "api-reference/search",
+              "api-reference/export"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/wbohanon/StoryGet1"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/wbohanon/StoryGet1"
+    }
+  }
+}

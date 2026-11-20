@@ -1,0 +1,17 @@
+---
+title: "Export"
+description: "Export the library and download the file."
+---
+
+## GET /export
+
+| Query | Default | Description |
+| --- | --- | --- |
+| `format` | `json` | `json`, `csv`, `txt`, `html`, `epub`, `markdown`, or `md` |
+| `filename` | `stories.<format>` | Output file name |
+
+Returns `{ "filename", "count", "format" }`.
+
+## GET /download/:filename
+
+Downloads an exported file. `404` if it doesn't exist.

@@ -1,0 +1,12 @@
+---
+title: "Stories"
+description: "Read, delete, and track stories."
+---
+
+| Method | Path | Description |
+| --- | --- | --- |
+| `GET` | `/stories` | List all stories |
+| `GET` | `/story/:id` | Get one story. `404` if missing |
+| `DELETE` | `/story/:id` | Delete a story. `404` if missing |
+| `GET` | `/story/:id/similar` | Similar stories. Query: `limit` (default `5`) |
+| `POST` | `/story/:id/read` | Mark as read (updates `read_count` and `last_read`) |

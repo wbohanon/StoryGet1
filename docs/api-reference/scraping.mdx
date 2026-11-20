@@ -1,0 +1,37 @@
+---
+title: "Scraping"
+description: "Scrape pages and discover story links."
+---
+
+## POST /scrape
+
+Scrape one URL and save the story.
+
+| Body field | Type | Required |
+| --- | --- | --- |
+| `url` | string | yes |
+
+```bash
+curl -X POST http://localhost:3000/scrape \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://example.com/story"}'
+```
+
+## POST /debug-scrape
+
+Same body as `/scrape`. Returns extraction details for troubleshooting.
+
+## POST /scrape-links
+
+Find story links on a page.
+
+| Body field | Type | Required |
+| --- | --- | --- |
+| `url` | string | yes |
+| `options` | object | no. See [scraping options](/guides/scraping#finding-links-on-a-page) |
+
+```bash
+curl -X POST http://localhost:3000/scrape-links \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://example.com/author/jane", "options": {"maxLinks": 25}}'
+```

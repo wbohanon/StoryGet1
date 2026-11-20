@@ -1,0 +1,17 @@
+---
+title: "Search"
+description: "Search the story library."
+---
+
+## POST /search
+
+| Body field | Type | Required |
+| --- | --- | --- |
+| `query` | string | no. Empty returns all stories that match the filters |
+| `options` | object | no. See [search options](/guides/search) |
+
+```bash
+curl -X POST http://localhost:3000/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "dragon", "options": {"minWordCount": 1000, "limit": 20}}'
+```
